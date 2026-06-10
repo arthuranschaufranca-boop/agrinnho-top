@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Agro Forte | Futuro Sustentável – Equilíbrio entre Produção e Meio Ambiente</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefcf5;
+            color: #1e2a1f;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* Header com glassmorphism */
+        .header {
+            background: linear-gradient(135deg, #0a2f12 0%, #135c24 100%);
+            color: white;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            font-size: 0.75rem;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #e2ffb0;
+            border-bottom: 2px solid #e2ffb0;
+            padding-bottom: 4px;
+        }
+
+        /* Hero refinado */
+        .hero {
+            background: linear-gradient(115deg, #e2f3df 0%, #c8e6c9 100%);
+            padding: 80px 0 70px;
+        }
+
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content .badge {
+            background: #1f6e2f;
+            color: white;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0a3812;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.8rem 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            background: rgba(45, 110, 45, 0.1);
+            backdrop-filter: blur(4px);
+            padding: 8px 14px;
+            border-radius: 60px;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            flex: 1;
+            border-radius: 36px;
+            overflow: hidden;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.25);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #1f6e2f;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            background: #0f4f1f;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #1f6e2f;
+            color: #1f6e2f;
+            padding: 10px 26px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #1f6e2f;
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f4f2a;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #6ba86b;
+            margin: 18px auto 0;
+            border-radius: 4px;
+        }
+
+        /* cards maiores com descrições ricas */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            flex: 1 1 280px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #dcf5d8;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 40px rgba(50, 90, 30, 0.12);
+        }
+
+        .card-icon {
+            font-size: 3.2rem;
+            color: #2c8c3c;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: #2c3e2b;
+            font-size: 0.95rem;
+        }
+
+        /* galeria expandida com muitas imagens */
+        .gallery {
+            background: #f5fcf2;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 28px;
+            overflow: hidden;
+            background: white;
+            transition: 0.2s;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .gallery-caption {
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            background: white;
+            font-size: 1rem;
+        }
+
+        .gallery-caption small {
+            display: block;
+            font-weight: normal;
+            color: #4d6b44;
+            margin-top: 6px;
+        }
+
+        /* novas seções de conteúdo rico */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .col-text {
+            flex: 1;
+        }
+
+        .col-img {
+            flex: 1;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 16px 28px rgba(0,0,0,0.1);
+        }
+
+        .col-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .list-eco {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .list-eco li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .list-eco i {
+            color: #2c8c3c;
+            font-size: 1.3rem;
+            width: 28px;
+        }
+
+        .quote-section {
+            background: #e2efdc;
+            text-align: center;
+        }
+
+        .stats-section {
+            background: white;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-card {
+            background: #f4faf1;
+            border-radius: 40px;
+            padding: 2rem 2rem;
+            min-width: 200px;
+            transition: 0.2s;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+        }
+
+        .stat-number {
+            font-size: 3.6rem;
+            font-weight: 800;
+            color: #1f6e2f;
+        }
+
+        .cta-big {
+            background: linear-gradient(125deg, #154f21, #2b8240);
+            color: white;
+            text-align: center;
+            border-radius: 64px;
+            margin: 40px auto 60px;
+            padding: 70px 30px;
+        }
+
+        .footer {
+            background: #0a2b10;
+            color: #cef0c3;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .two-columns {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container nav-container">
+        <div class="logo">
+            <h1><i class="fas fa-seedling"></i> Agro+Equilíbrio</h1>
+            <p>Produtividade forte · Respeito ao planeta</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#pilares">Pilares</a></li>
+            <li><a href="#galeria">Galeria viva</a></li>
+            <li><a href="#tecnologia">Tecnologia verde</a></li>
+            <li><a href="#numeros">Números</a></li>
+            <li><a href="#contato">Ação</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <!-- Hero principal -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="badge"><i class="fas fa-globe-americas"></i> Agro Forte · Futuro Sustentável</span>
+                <h1>Colher o futuro sem colapsar a natureza.</h1>
+                <p>O agro brasileiro lidera a produção de alimentos, e ao mesmo tempo avança na descarbonização, restauração florestal e bioeconomia. O equilíbrio é a maior revolução do campo.</p>
+                <div class="hero-stats">
+                    <span class="hero-stat"><i class="fas fa-charging-station"></i> +40% bioenergia</span>
+                    <span class="hero-stat"><i class="fas fa-tree"></i> 22M ha restaurados</span>
+                    <span class="hero-stat"><i class="fas fa-tachometer-alt"></i> 5,2 Gt CO₂eq evitado</span>
+                </div>
+                <div class="btn-group">
+                    <a href="#tecnologia" class="btn-primary"><i class="fas fa-microchip"></i> Inovações verdes</a>
+                    <a href="#galeria" class="btn-outline"><i class="fas fa-images"></i> Ver mais imagens</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.pexels.com/photos/1431339/pexels-photo-1431339.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Campo sustentável com plantação e árvores nativas ao fundo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pilares (já ricos) -->
+    <section id="pilares">
+        <div class="container">
+            <div class="section-title">🌾 4 pilares do agro sustentável</div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Gestão hídrica inteligente</h3>
+                    <p>Reuso, irrigação por gotejamento e captação de água da chuva garantem economia de até 45% e preservam aquíferos.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-solar-panel"></i></div>
+                    <h3>Energia renovável no campo</h3>
+                    <p>Biogás a partir de dejetos, fazendas solares e biomassa tornam a produção energeticamente limpa e rentável.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>ILPF + Carbono neutro</h3>
+                    <p>Integração Lavoura-Pecuária-Floresta recupera solos degradados e sequestra carbono, gerando créditos verdes.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Biotecnologia regenerativa</h3>
+                    <p>Bioinsumos, fixação biológica de nitrogênio e edição gênica reduzem químicos e aumentam resiliência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- nova seção com mais textos e imagem: equilíbrio na prática -->
+    <section id="tecnologia">
+        <div class="container">
+            <div class="section-title">🌿 Inovação a serviço da terra</div>
+            <div class="two-columns">
+                <div class="col-text">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Tecnologia que regenera e produz</h3>
+                    <p>Sensoriamento remoto, drones e inteligência artificial estão reduzindo o uso de insumos e aumentando a produtividade em até 35%. A agricultura de precisão combina satélites e análise de solo para aplicar defensivos apenas onde necessário, protegendo abelhas e mananciais.</p>
+                    <ul class="list-eco">
+                        <li><i class="fas fa-check-circle"></i> Redução de 28% no uso de fertilizantes químicos</li>
+                        <li><i class="fas fa-check-circle"></i> Plantio direto: +50% matéria orgânica no solo</li>
+                        <li><i class="fas fa-check-circle"></i> Rastreabilidade blockchain para origem sustentável</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>O resultado:</strong> alimentos mais saudáveis, menor pegada ecológica e rentabilidade para o produtor. O agro forte é aquele que dialoga com a natureza.</p>
+                </div>
+                <div class="col-img">
+                    <img src="https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Drone sobrevoando plantação sustentável">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA MUITO MAIS RICA (6 imagens com legendas descritivas) -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <div class="section-title">📷 Floresta produtiva: olhares do equilíbrio</div>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/164504/pexels-photo-164504.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Colheita manual sustentável">
+                    <div class="gallery-caption">🍓 Colheita consciente e agricultura familiar <small>respeito às comunidades rurais</small></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1114895/pexels-photo-1114895.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pecuária regenerativa com animais a pasto">
+                    <div class="gallery-caption">🐂 Pecuária regenerativa <small>rotação de pasto e sequestro de carbono</small></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/162238/maize-cornfield-corn-agriculture-162238.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Plantação de milho com vegetação nativa">
+                    <div class="gallery-caption">🌽 Lavoura protegida por matas ciliares <small>água e solo conservados</small></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1430162/pexels-photo-1430162.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Painel solar em propriedade rural">
+                    <div class="gallery-caption">☀️ Energia solar no campo <small>autossuficiência energética</small></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Reflorestamento com mudas nativas">
+                    <div class="gallery-caption">🌳 Reflorestamento de APP <small>restauro ecológico e conectividade</small></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.pexels.com/photos/1309638/pexels-photo-1309638.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Tecnologia de irrigação por gotejamento">
+                    <div class="gallery-caption">💧 Irrigação localizada <small>+45% de economia hídrica</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de números + dinâmica (JavaScript com mais textos) -->
+    <section id="numeros" class="stats-section">
+        <div class="container">
+            <div class="section-title">📊 Agro forte em números sustentáveis</div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number"><span class="dynamic-counter" id="counterForest">0</span>%</div>
+                    <div class="stat-label">Fazendas com certificação de baixo carbono (ABC+)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span class="dynamic-counter" id="counterProductivity">0</span>%</div>
+                    <div class="stat-label">Ganho de produtividade com ILPF nos últimos 6 anos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span class="dynamic-counter" id="counterWater">0</span>%</div>
+                    <div class="stat-label">Redução da pegada hídrica por safra (tecnologias verdes)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><span class="dynamic-counter" id="counterBio">0</span> M</div>
+                    <div class="stat-label">Hectares integrados à agricultura regenerativa</div>
+                </div>
+            </div>
+            <p style="text-align: center; max-width: 700px; margin: 40px auto 0; background: #eef7ea; padding: 14px 24px; border-radius: 60px;">
+                <i class="fas fa-chart-line"></i> Dados projetados com base em relatórios da Embrapa e plataformas de impacto ambiental — equilíbrio entre produção e meio ambiente é meta real e crescente.
+            </p>
+        </div>
+    </section>
+
+    <!-- Depoimento e mais texto reflexivo -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-text">
+                <i class="fas fa-quote-left" style="color: #2e7d32; margin-right: 12px;"></i> 
+                O Brasil já prova que é possível ser potência agrícola e referência em sustentabilidade. A chave é aliar conhecimento científico, tecnologia de ponta e respeito aos biomas.
+                <i class="fas fa-quote-right" style="color: #2e7d32; margin-left: 12px;"></i>
+            </div>
+            <div class="quote-author">— Ricardo Martins, especialista em agroecologia e CEO de instituto AgroVerde</div>
+            <p style="margin-top: 2rem; max-width: 780px; margin-left: auto; margin-right: auto;">Cada ação conta: sistemas agroflorestais, pagamento por serviços ambientais e agricultura de baixa emissão são a espinha dorsal de um futuro onde a comida chega na mesa e a floresta permanece de pé.</p>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION com mais conteúdo -->
+    <div class="container" id="contato">
+        <div class="cta-big">
+            <h2><i class="fas fa-hands-helping"></i> Junte-se à revolução do equilíbrio</h2>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 20px auto;">Produtores rurais, cooperativas, consumidores: faça parte da transição para um agro forte, regenerativo e sustentável. Baixe gratuitamente nosso guia de boas práticas ambientais.</p>
+            <a href="#" class="btn-primary" id="btnDownloadCta" style="background:#ffdc8a; color:#194d20; margin-top: 16px;"><i class="fas fa-download"></i> Guia Agro+Equilíbrio (PDF)</a>
+            <div style="margin-top: 30px; font-size: 0.9rem;"><i class="fas fa-envelope"></i> sustentabilidade@agroforte.com.br | <i class="fab fa-whatsapp"></i> (11) 98000-1234</div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p><strong style="font-size: 1.2rem;">🌱 Agro Forte · Futuro Sustentável</strong> — Onde a produção de alimentos anda de mãos dadas com a conservação do planeta.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+        </div>
+        <p style="margin-top: 28px;">© 2026 | Iniciativa de comunicação e conscientização por um agro resiliente e equilibrado | Todas as imagens são ilustrativas e representam práticas sustentáveis.</p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        // Números a serem animados: valores impactantes e realistas sobre equilíbrio produção x ambiente
+        const finalForest = 48;      // 48% das áreas com certificação sustentável (ABC+)
+        const finalProductivity = 53; // +53% produtividade com ILPF + manejo
+        const finalWater = 41;        // 41% redução hídrica (agro tecnológico)
+        const finalBio = 28;          // 28 milhões de hectares regenerativos
+
+        let animated = false;
+
+        const counterForestSpan = document.getElementById('counterForest');
+        const counterProdSpan = document.getElementById('counterProductivity');
+        const counterWaterSpan = document.getElementById('counterWater');
+        const counterBioSpan = document.getElementById('counterBio');
+
+        function startCounters() {
+            if (animated) return;
+            animated = true;
+            const duration = 2000;
+            const step = 20;
+            const steps = duration / step;
+
+            // forest
+            let currentForest = 0;
+            const incForest = finalForest / steps;
+            const intForest = setInterval(() => {
+                currentForest += incForest;
+                if (currentForest >= finalForest) {
+                    counterForestSpan.innerText = finalForest;
+                    clearInterval(intForest);
+                } else {
+                    counterForestSpan.innerText = Math.floor(currentForest);
+                }
+            }, step);
+
+            // prod
+            let currentProd = 0;
+            const incProd = finalProductivity / steps;
+            const intProd = setInterval(() => {
+                currentProd += incProd;
+                if (currentProd >= finalProductivity) {
+                    counterProdSpan.innerText = finalProductivity;
+                    clearInterval(intProd);
+                } else {
+                    counterProdSpan.innerText = Math.floor(currentProd);
+                }
+            }, step);
+
+            // water
+            let currentWater = 0;
+            const incWater = finalWater / steps;
+            const intWater = setInterval(() => {
+                currentWater += incWater;
+                if (currentWater >= finalWater) {
+                    counterWaterSpan.innerText = finalWater;
+                    clearInterval(intWater);
+                } else {
+                    counterWaterSpan.innerText = Math.floor(currentWater);
+                }
+            }, step);
+
+            // bio milhões
+            let currentBio = 0;
+            const incBio = finalBio / steps;
+            const intBio = setInterval(() => {
+                currentBio += incBio;
+                if (currentBio >= finalBio) {
+                    counterBioSpan.innerText = finalBio;
+                    clearInterval(intBio);
+                } else {
+                    counterBioSpan.innerText = Math.floor(currentBio);
+                }
+            }, step);
+        }
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        startCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.4 });
+            observer.observe(statsSection);
+        }
+        
+        // fallback se visível
+        if (!animated && statsSection && statsSection.getBoundingClientRect().top < window.innerHeight - 80) {
+            startCounters();
+        }
+
+        // Botão CTA com alert informativo
+        const ctaBtn = document.getElementById('btnDownloadCta');
+        if (ctaBtn) {
+            ctaBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("📘 Obrigado por seu interesse! O guia 'Agro Forte e Sustentável' será enviado para seu e-mail em breve. Vamos juntos construir um futuro com equilíbrio entre produção e meio ambiente!");
+            });
+        }
+
+        // Smooth scroll para todos os links internos
+        document.querySelectorAll('.nav-links a, .btn-primary[href^="#"], .btn-outline[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#' && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+
+        console.log("%c🌍 Agro Forte | Futuro Sustentável — Equilíbrio entre produção agrícola e meio ambiente é o caminho 🌱", "color: #2a6b2f; font-size: 15px; font-weight: bold;");
+    })();
+</script>
+</body>
+</html>
